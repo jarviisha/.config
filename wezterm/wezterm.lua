@@ -14,14 +14,15 @@ config.mux_enable_ssh_agent = false
 
 config.colors = colors
 
-config.background = {
-	{
-		source = { File = "E:/wezterm/2.jpg" },
-		hsb = { brightness = 0.05 },
-		horizontal_align = "Center",
-		-- opacity = 0.8,
-	},
-}
+-- config.background = {
+-- 	{
+-- 		source = { File = "E:/wezterm/2.jpg" },
+-- 		hsb = { brightness = 0.05 },
+-- 		horizontal_align = "Center",
+-- 		-- opacity = 0.8,
+-- 	},
+-- }
+--
 
 -- config.color_scheme = "Catppuccin Macchiato"
 config.font = wezterm.font("CaskaydiaCove Nerd Font Mono")
@@ -29,11 +30,11 @@ config.font = wezterm.font("CaskaydiaCove Nerd Font Mono")
 config.window_padding = {
 	left = 6,
 	right = 6,
-	top = 15,
+	top = 16,
 	-- bottom = 7,
 }
 
-config.font_size = 12
+config.font_size = 14
 
 -- ##Key maps config:
 -- Set leader key
@@ -63,6 +64,11 @@ config.keys = {
 		key = "n",
 		action = wezterm.action.ActivateTabRelative(1),
 	},
+	{
+		mods = "LEADER",
+		key = "f",
+		action = wezterm.action.ToggleFullScreen,
+	},
 }
 
 -- Chọn một pane theo thứ tự từ 0 -> 9
@@ -84,12 +90,11 @@ config.tab_max_width = 50
 -- ##
 
 -- ##Status config
-wezterm.on("update-right-status", function(window, _)
+wezterm.on("update-left-status", function(window, _)
 	local SOLID_LEFT_ARROW = ""
 	local ARROW_FOREGROUND = { Foreground = { Color = "#c6a0f6" } }
 	local prefix = ""
 
-	-- if window:leader_is_active() then
 	prefix = " " .. utf8.char(0x1f30a)
 	prefix = " ⚡⚡ .::.: "
 	-- SOLID_LEFT_ARROW = utf8.char(0xe0b2)
@@ -118,10 +123,16 @@ wezterm.on("update-right-status", function(window, _)
 	-- 	battery = string.format(" %.0f%%", b.state_of_charge * 100)
 	-- end
 
+	local prefix = "~~~ @@@@   "
+
+	if window:leader_is_active() then
+		prefix = "💪💪 @@@@   "
+	end
+
 	-- Đặt chuỗi trạng thái cho thanh bên phải
 	window:set_right_status(wezterm.format({
 		-- { Background = { Color = "#b7bdf8" } },
-		{ Text = "@@@@ " }, -- Hiển thị biểu tượng pin, trạng thái và thời gian
+		{ Text = prefix }, -- Hiển thị biểu tượng pin, trạng thái và thời gian
 	}))
 end)
 
