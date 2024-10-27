@@ -90,7 +90,7 @@ config.tab_max_width = 50
 -- ##
 
 -- ##Status config
-wezterm.on("update-left-status", function(window, _)
+wezterm.on("update-right-status", function(window, _)
 	local SOLID_LEFT_ARROW = ""
 	local ARROW_FOREGROUND = { Foreground = { Color = "#c6a0f6" } }
 	local prefix = ""
