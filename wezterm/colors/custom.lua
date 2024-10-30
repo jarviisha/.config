@@ -30,7 +30,8 @@ local mocha = {
 
 local colorscheme = {
 	foreground = mocha.text,
-	background = mocha.base,
+	-- background = mocha.base,
+	background = "#1E201E",
 	cursor_bg = mocha.rosewater,
 	cursor_border = mocha.rosewater,
 	cursor_fg = mocha.crust,

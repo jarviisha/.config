@@ -14,18 +14,17 @@ config.mux_enable_ssh_agent = false
 
 config.colors = colors
 
--- config.background = {
--- 	{
--- 		source = { File = "E:/wezterm/2.jpg" },
--- 		hsb = { brightness = 0.05 },
--- 		horizontal_align = "Center",
--- 		-- opacity = 0.8,
--- 	},
--- }
---
+config.background = {
+	{
+		source = { File = "E:/wezterm/3.jpg" },
+		hsb = { brightness = 0.05 },
+		horizontal_align = "Center",
+		-- opacity = 0.8,
+	},
+}
 
 -- config.color_scheme = "Catppuccin Macchiato"
-config.font = wezterm.font("CaskaydiaCove Nerd Font Mono")
+config.font = wezterm.font("CaskaydiaCove Nerd Font")
 
 config.window_padding = {
 	left = 6,
@@ -35,6 +34,8 @@ config.window_padding = {
 }
 
 config.font_size = 14
+config.line_height = 1.1
+config.cell_width = 1
 
 -- ##Key maps config:
 -- Set leader key
@@ -95,7 +96,7 @@ wezterm.on("update-right-status", function(window, _)
 	local ARROW_FOREGROUND = { Foreground = { Color = "#c6a0f6" } }
 	local prefix = ""
 
-	prefix = " " .. utf8.char(0x1f30a)
+	-- prefix = " " .. utf8.char(0x1f30a)
 	prefix = " ⚡⚡ .::.: "
 	-- SOLID_LEFT_ARROW = utf8.char(0xe0b2)
 	-- end
