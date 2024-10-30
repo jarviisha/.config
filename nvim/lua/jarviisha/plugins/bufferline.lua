@@ -63,17 +63,19 @@ return {
 			end
 
 			-- Đóng buffer đang focus
-			vim.keymap.set("n", "<leader>bd", function()
+			vim.keymap.set("n", "<leader>bq", function()
 				close_current_buffer()
 			end, { noremap = true, silent = true })
-			-- Đóng buffer hiện tại
+			-- Chọn buffer để đóng
 			vim.keymap.set("n", "<leader>0", "<Cmd>BufferLinePickClose<CR>", { noremap = true, silent = true })
+			-- Tắt toàn bộ buffer trừ buffer hiện tại
+			vim.keymap.set("n", "<leader>ba", "<Cmd>BufferLineCloseOther<CR>", { noremap = true, silent = true })
 
 			-- Chọn buffer theo tên
-			vim.keymap.set("n", "<leader>b", "<Cmd>BufferLinePick<CR>", { noremap = true, silent = true })
+			-- vim.keymap.set("n", "<leader>b", "<Cmd>BufferLinePick<CR>", { noremap = true, silent = true })
 
 			-- Đóng buffer hiện tại
-			vim.keymap.set("n", "<leader>q", "<Cmd>bdelete<CR>", { noremap = true, silent = true })
+			-- vim.keymap.set("n", "<leader>q", "<Cmd>bdelete<CR>", { noremap = true, silent = true })
 
 			-- Di chuyển giữa các buffer
 			vim.keymap.set("n", "<leader>1", "<Cmd>BufferLineGoToBuffer 1<CR>", { noremap = true, silent = true })
