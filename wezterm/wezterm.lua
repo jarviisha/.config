@@ -7,6 +7,9 @@ if wezterm.config_builder then
 	config = wezterm.config_builder()
 end
 
+config.initial_rows = 30
+config.initial_cols = 140
+
 -- Dùng powershell làm thiết bị đầu vào
 config.default_prog = { "powershell.exe" }
 
@@ -33,8 +36,8 @@ config.window_padding = {
 	-- bottom = 7,
 }
 
-config.font_size = 14
-config.line_height = 1.1
+config.font_size = 13
+config.line_height = 1.2
 config.cell_width = 1
 
 -- ##Key maps config:
@@ -69,6 +72,27 @@ config.keys = {
 		mods = "LEADER",
 		key = "f",
 		action = wezterm.action.ToggleFullScreen,
+	},
+	-- Thay đổi kích thước panel
+	{
+		mods = "CTRL|SHIFT",
+		key = "RightArrow",
+		action = wezterm.action.AdjustPaneSize({ "Right", 1 }),
+	},
+	{
+		mods = "CTRL|SHIFT",
+		key = "LeftArrow",
+		action = wezterm.action.AdjustPaneSize({ "Left", 1 }),
+	},
+	{
+		mods = "CTRL|SHIFT",
+		key = "UpArrow",
+		action = wezterm.action.AdjustPaneSize({ "Up", 1 }),
+	},
+	{
+		mods = "CTRL|SHIFT",
+		key = "DownArrow",
+		action = wezterm.action.AdjustPaneSize({ "Down", 1 }),
 	},
 }
 
