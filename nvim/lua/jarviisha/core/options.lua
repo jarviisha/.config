@@ -39,3 +39,5 @@ opt.swapfile = false
 vim.g.loaded_man = 1
 
 vim.opt.mouse = "a"
+
+vim.o.switchbuf = "useopen,usetab"
