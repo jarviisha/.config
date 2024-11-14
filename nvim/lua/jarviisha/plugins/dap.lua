@@ -10,9 +10,9 @@ return {
 		},
 		config = function()
 			local dap = require("dap")
-			-- local ui = require("dapui")
-
-			require("dapui").setup()
+			local ui = require("dapui")
+			ui.setup()
+			require("dap-go").setup()
 
 			require("nvim-dap-virtual-text").setup({
 				display_callback = function(variable)
@@ -88,6 +88,8 @@ return {
 				':lua require"dap".step_out()<CR>',
 				{ noremap = true, silent = true }
 			)
+
+			vim.api.nvim_set_keymap("n", "<leader>df", ":lua require('dapui').eval()<CR>", { noremap = true })
 
 			-- Map phím F4 để chạy lại phiên debug từ đầu (Restart, tương đương với VSCode)
 			vim.api.nvim_set_keymap("n", "<F4>", ':lua require"dap".restart()<CR>', { noremap = true, silent = true })
