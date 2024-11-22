@@ -33,6 +33,8 @@ opt.backspace = "indent,eol,start"
 opt.splitright = true
 opt.splitbelow = true
 
+-- opt.colorcolumn = "120"
+
 -- turn off swapfile
 opt.swapfile = false
 
@@ -40,4 +42,4 @@ vim.g.loaded_man = 1
 
 vim.opt.mouse = "a"
 
-vim.o.switchbuf = "useopen,usetab"
+vim.o.switchbuf = "useopen,usetab,newtab"
