@@ -148,7 +148,7 @@ wezterm.on("update-right-status", function(window, _)
 	-- 	battery = string.format(" %.0f%%", b.state_of_charge * 100)
 	-- end
 
-	local prefix = "~~~ @@@@   "
+	local prefix = "🚬🚬 @@@@   "
 
 	if window:leader_is_active() then
 		prefix = "💪💪 @@@@   "
