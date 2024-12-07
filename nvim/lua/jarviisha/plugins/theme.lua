@@ -15,19 +15,20 @@ return {
 		"olivercederborg/poimandres.nvim",
 		lazy = false,
 		priority = 1000,
-		-- config = function()
-		-- 	require("poimandres").setup({
-		-- 		bold_vert_split = false, -- use bold vertical separators
-		-- 		dim_nc_background = false, -- dim 'non-current' window backgrounds
-		-- 		disable_background = true, -- disable background
-		-- 		disable_float_background = false, -- disable background for floats
-		-- 		disable_italics = false, -- disable italics
-		-- 	})
-		-- end,
+		config = function()
+			require("poimandres").setup({
+				bold_vert_split = true, -- use bold vertical separators
+				dim_nc_background = true, -- dim 'non-current' window backgrounds
+				disable_background = true, -- disable background
+				disable_float_background = true, -- disable background for floats
+				disable_italics = false, -- disable italics
+			})
+		end,
 
 		-- optionally set the colorscheme within lazy config
 		-- init = function()
 		-- 	vim.cmd("colorscheme poimandres")
+		-- 	-- vim.cmd("highlight Comment guifg=#bbc34d")
 		-- end,
 	},
 	{
@@ -71,8 +72,27 @@ return {
 					bg = true,
 					float = true,
 				},
+				telescope = {
+					-- Available styles: `classic`, `flat`.
+					style = "classic",
+				},
+				bright_border = true,
 			})
-			nor.load()
+			-- nor.load()
+		end,
+	},
+	{
+		"rose-pine/neovim",
+		name = "rose-pine",
+		config = function()
+			require("rose-pine").setup({
+				styles = {
+					bold = true,
+					italic = false,
+					transparency = true,
+				},
+			})
+			vim.cmd("colorscheme rose-pine-moon")
 		end,
 	},
 }
