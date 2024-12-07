@@ -19,7 +19,7 @@ config.colors = colors
 
 config.background = {
 	{
-		source = { File = "E:/wezterm/3.jpg" },
+		source = { File = "E:/wezterm/4.jpg" },
 		hsb = { brightness = 0.05 },
 		horizontal_align = "Center",
 		-- opacity = 0.8,
@@ -33,7 +33,7 @@ config.window_padding = {
 	left = 6,
 	right = 6,
 	top = 16,
-	-- bottom = 7,
+	bottom = 0,
 }
 
 config.font_size = 13
@@ -130,8 +130,6 @@ wezterm.on("update-right-status", function(window, _)
 	end
 
 	window:set_left_status(wezterm.format({
-		-- { Background = { Color = "#b7bdf8" } },
-		-- { Background = { Color = "#FFFFFF" } },
 		{ Text = prefix },
 		ARROW_FOREGROUND,
 		{ Text = SOLID_LEFT_ARROW },
@@ -139,19 +137,10 @@ wezterm.on("update-right-status", function(window, _)
 end)
 
 wezterm.on("update-right-status", function(window, _)
-	-- Lấy thời gian hiện tại
-	-- local date = wezterm.strftime("%Y-%m-%d %H:%M:%S")
-	--
-	-- -- Hiển thị thông tin trạng thái pin (nếu có)
-	-- local battery = ""
-	-- for _, b in ipairs(wezterm.battery_info()) do
-	-- 	battery = string.format(" %.0f%%", b.state_of_charge * 100)
-	-- end
-
-	local prefix = "🚬🚬 @@@@   "
+	local prefix = "🌟🌟 /:: @DevIsLife   "
 
 	if window:leader_is_active() then
-		prefix = "💪💪 @@@@   "
+		prefix = "🔞🔞 /## CMD   "
 	end
 
 	-- Đặt chuỗi trạng thái cho thanh bên phải
