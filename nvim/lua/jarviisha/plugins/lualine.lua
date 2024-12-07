@@ -85,7 +85,8 @@ return {
 
 			ins_left({
 				function()
-					return "▊"
+					-- return "▊"
+					return "::."
 				end,
 				color = { fg = colors.blue }, -- Sets highlighting of component
 				padding = { left = 0, right = 1 }, -- We don't need space before this
@@ -144,6 +145,7 @@ return {
 				"diagnostics",
 				sources = { "nvim_diagnostic" },
 				symbols = { error = "  ", warn = "  ", info = "  " },
+				-- symbols = { error = "Error ", warn = "Warning ", info = "Info " },
 				diagnostics_color = {
 					error = { fg = colors.red },
 					warn = { fg = colors.yellow },
@@ -180,19 +182,37 @@ return {
 				color = { fg = "#ffffff", gui = "bold" },
 			})
 
+			ins_left({
+				function()
+					-- Hiển thị biểu tượng loại tệp (filetype) trong thanh trạng thái
+					local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
+					local icon, _ = require("nvim-web-devicons").get_icon(buf_ft)
+					return icon or ""
+				end,
+				icon = "| with ❤  from",
+				-- color = { fg = "#ffffff" },
+			})
+
 			-- Add components to right sections
 			ins_right({
-				"o:encoding", -- option component same as &encoding in viml
-				fmt = string.upper, -- I'm not sure why it's upper case either ;)
-				cond = conditions.hide_in_width,
-				color = { fg = colors.green, gui = "bold" },
+				-- "o:encoding",
+				-- icon = "✨✨",
+				-- fmt = string.upper, -- I'm not sure why it's upper case either ;)
+				-- cond = conditions.hide_in_width,
+				-- color = { fg = colors.green, gui = "bold" },
+				function()
+					return "✨✨"
+				end,
 			})
 
 			ins_right({
-				"fileformat",
-				fmt = string.upper,
-				icons_enabled = false, -- I think icons are cool but Eviline doesn't have them. sigh
-				color = { fg = colors.green, gui = "bold" },
+				-- "fileformat",
+				-- fmt = string.upper,
+				-- icons_enabled = false, -- I think icons are cool but Eviline doesn't have them. sigh
+				-- color = { fg = colors.green, gui = "bold" },
+				function()
+					return "@jarviisha"
+				end,
 			})
 
 			ins_right({
@@ -215,7 +235,8 @@ return {
 
 			ins_right({
 				function()
-					return "▊"
+					-- return "▊"
+					return ".::"
 				end,
 				color = { fg = colors.blue },
 				padding = { left = 1 },
