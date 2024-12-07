@@ -22,8 +22,15 @@ return {
 
 		cmp.setup({
 			window = {
+				-- completion = cmp.config.window.bordered(), -- Hộp gợi ý
+				-- documentation = cmp.config.window.bordered(), -- Hộp tài liệu
+				completion = {
+					border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" }, -- Có thể thêm viền
+					scrollbar = false, -- Tắt thanh scrollbar
+				},
 				documentation = {
-					-- border = "rounded",
+					border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" }, -- Có thể thêm viền
+					scrollbar = false, -- Tắt thanh scrollbar
 				},
 			},
 			completion = {
