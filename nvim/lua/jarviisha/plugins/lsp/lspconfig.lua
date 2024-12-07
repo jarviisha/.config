@@ -80,14 +80,6 @@ return {
 		local capabilities = cmp_nvim_lsp.default_capabilities()
 
 		-- Change the Diagnostic symbols in the sign column (gutter)
-		-- (not in youtube nvim video)
-		-- local signs = {
-		-- 	Error = "😡",
-		-- 	Warn = "😱",
-		-- 	Hint = "💭",
-		-- 	Info = "💤",
-		-- }
-		--
 		local signs = {
 			Error = "",
 			Warn = "",
@@ -180,8 +172,10 @@ return {
 							usePlaceholders = true,
 						},
 					},
-					on_attach = function(_, bufnr)
+					on_attach = function(client, bufnr)
 						require("lsp_signature").on_attach(_, bufnr) -- Note: add in lsp client on-attach
+						client.server_capabilities.document_formatting = true
+						client.server_capabilities.document_range_formatting = true
 					end,
 				})
 			end,
