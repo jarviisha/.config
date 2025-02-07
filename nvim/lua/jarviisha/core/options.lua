@@ -43,3 +43,9 @@ vim.g.loaded_man = 1
 vim.opt.mouse = "a"
 
 vim.o.switchbuf = "useopen,usetab,newtab"
+
+-- vim.diagnostic.config({
+-- 	float = {
+-- 		border = "rounded", -- Các kiểu border khác: "single", "double", "shadow", "none"
+-- 	},
+-- })

@@ -13,7 +13,8 @@ return {
 				},
 			})
 			-- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#1E1E2E" }) -- Nền của popup
-			vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#FFD700" }) -- Màu viền
+			-- vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#FFD700" }) -- Màu viền
+			-- vim.api.nvim_set_hl(0, "FloatBorder") -- Màu viền
 		end,
 	},
 }
