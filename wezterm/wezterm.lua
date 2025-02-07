@@ -19,15 +19,15 @@ config.colors = colors
 
 config.background = {
 	{
-		source = { File = "E:/wezterm/4.jpg" },
-		hsb = { brightness = 0.05 },
+		source = { File = wezterm.config_dir .. "/wallpaper/w2.jpg" },
+		hsb = { brightness = 0.1 },
 		horizontal_align = "Center",
 		-- opacity = 0.8,
 	},
 }
 
 -- config.color_scheme = "Catppuccin Macchiato"
-config.font = wezterm.font("CaskaydiaCove Nerd Font")
+config.font = wezterm.font("CaskaydiaCove Nerd Font Mono")
 
 config.window_padding = {
 	left = 6,
@@ -40,6 +40,23 @@ config.font_size = 13
 config.line_height = 1.2
 config.cell_width = 1
 
+config.freetype_load_target = "Normal" -- Điều chỉnh cách hiển thị font
+-- config.freetype_render_target = "HorizontalLcd" -- Tăng độ nét chữ
+config.freetype_interpreter_version = 40 -- Phiên bản interpreter giúp tối ưu hiển thị
+config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" } -- Tắt ligatures nếu thấy mờ
+
+wezterm.on("toggle-tabbar", function(window, _)
+	local overrides = window:get_config_overrides() or {}
+	if overrides.enable_tab_bar == false then
+		wezterm.log_info("tab bar shown")
+		overrides.enable_tab_bar = true
+	else
+		wezterm.log_info("tab bar hidden")
+		overrides.enable_tab_bar = false
+	end
+	window:set_config_overrides(overrides)
+end)
+
 -- ##Key maps config:
 -- Set leader key
 config.leader = { key = "q", mods = "ALT", timeout_milliseconds = 2000 }
@@ -49,6 +66,11 @@ config.keys = {
 		mods = "LEADER",
 		key = "t",
 		action = wezterm.action.SpawnTab("CurrentPaneDomain"),
+	},
+	{
+		key = "m",
+		mods = "LEADER",
+		action = wezterm.action.EmitEvent("toggle-tabbar"),
 	},
 	-- Đóng pane đang dùng
 	{
