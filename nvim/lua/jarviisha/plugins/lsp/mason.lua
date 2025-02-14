@@ -32,9 +32,8 @@ return {
 				"graphql",
 				"emmet_ls",
 				"prismals",
-				"pyright",
 				"gopls",
-				"omnisharp",
+				-- "omnisharp",
 			},
 		})
 
