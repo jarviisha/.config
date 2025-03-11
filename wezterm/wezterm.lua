@@ -7,27 +7,29 @@ if wezterm.config_builder then
 	config = wezterm.config_builder()
 end
 
-config.initial_rows = 30
-config.initial_cols = 140
+config.initial_rows = 25
+config.initial_cols = 130
 
 -- Dùng powershell làm thiết bị đầu vào
 config.default_prog = { "powershell.exe" }
 
-config.mux_enable_ssh_agent = false
+-- config.mux_enable_ssh_agent = false
 
 config.colors = colors
 
-config.background = {
-	{
-		source = { File = wezterm.config_dir .. "/wallpaper/w2.jpg" },
-		hsb = { brightness = 0.1 },
-		horizontal_align = "Center",
-		-- opacity = 0.8,
-	},
-}
+-- config.background = {
+-- 	{
+-- 		source = { File = wezterm.config_dir .. "/wallpaper/w2.jpg" },
+-- 		hsb = { brightness = 0.1 },
+-- 		horizontal_align = "Center",
+-- 		opacity = 0.9,
+-- 	},
+-- }
+
+config.window_background_opacity = 0.85
 
 -- config.color_scheme = "Catppuccin Macchiato"
-config.font = wezterm.font("CaskaydiaCove Nerd Font Mono")
+config.font = wezterm.font("CaskaydiaMono Nerd Font")
 
 config.window_padding = {
 	left = 6,
@@ -41,7 +43,7 @@ config.line_height = 1.2
 config.cell_width = 1
 
 config.freetype_load_target = "Normal" -- Điều chỉnh cách hiển thị font
--- config.freetype_render_target = "HorizontalLcd" -- Tăng độ nét chữ
+config.freetype_render_target = "HorizontalLcd" -- Tăng độ nét chữ
 config.freetype_interpreter_version = 40 -- Phiên bản interpreter giúp tối ưu hiển thị
 config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" } -- Tắt ligatures nếu thấy mờ
 
@@ -143,7 +145,7 @@ wezterm.on("update-right-status", function(window, _)
 	local prefix = ""
 
 	-- prefix = " " .. utf8.char(0x1f30a)
-	prefix = " ⚡⚡ .::.: "
+	prefix = " 🌊🌊 .::.: "
 	-- SOLID_LEFT_ARROW = utf8.char(0xe0b2)
 	-- end
 
@@ -162,7 +164,7 @@ wezterm.on("update-right-status", function(window, _)
 	local prefix = "🌟🌟 /:: @DevIsLife   "
 
 	if window:leader_is_active() then
-		prefix = "🔞🔞 /## CMD   "
+		prefix = "🌟🌟 /:: @CMD   "
 	end
 
 	-- Đặt chuỗi trạng thái cho thanh bên phải

@@ -184,14 +184,18 @@ return {
 					end,
 				})
 			end,
-			-- ["omnisharp"] = function()
-			-- 	lspconfig["omnisharp"].setup({
-			-- 		cmd = { "omnisharp" },
-			-- 		on_attach = function(_, bufnr)
-			-- 			require("lsp_signature").on_attach(_, bufnr) -- Note: add in lsp client on-attach
-			-- 		end,
-			-- 	})
-			-- end,
+			["eslint"] = function()
+				lspconfig["eslint"].setup({
+					on_attach = function(client)
+						client.server_capabilities.documentFormattingProvider = true
+					end,
+					settings = {
+						eslint = {
+							workingDirectories = { mode = "auto" },
+						},
+					},
+				})
+			end,
 		})
 	end,
 }

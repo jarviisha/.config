@@ -30,7 +30,8 @@ return {
 					scrollbar = false, -- Tắt thanh scrollbar
 				},
 				documentation = {
-					border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" }, -- Có thể thêm viền
+					-- border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" }, -- Có thể thêm viền
+					border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" }, -- Có thể thêm viền
 					scrollbar = false, -- Tắt thanh scrollbar
 				},
 			},

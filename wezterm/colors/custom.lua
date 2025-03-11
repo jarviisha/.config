@@ -31,7 +31,8 @@ local mocha = {
 local colorscheme = {
 	foreground = mocha.text,
 	-- background = mocha.base,
-	background = "#1E201E",
+	-- background = "#1e1e1e",
+	background = "#000000",
 	cursor_bg = mocha.rosewater,
 	cursor_border = mocha.rosewater,
 	cursor_fg = mocha.crust,
@@ -58,8 +59,10 @@ local colorscheme = {
 		"#F2F2F2", -- white
 	},
 	tab_bar = {
-		background = "#1E3E62",
+		-- background = "#1E3E62",
+		background = "#1e1e1e",
 		active_tab = {
+			-- bg_color = "#CD1818",
 			bg_color = "#CD1818",
 			fg_color = "#FFFFFF",
 		},
